@@ -1,0 +1,20 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "sqldata": "StartWithoutDebugging",
+        "johnnydemo.api": "StartDebugging"
+      }
+    },
+    "Dependency Services": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "sqldata": "StartWithoutDebugging",
+        "johnnydemo.api": "DoNotStart"
+      }
+    }
+  }
+}

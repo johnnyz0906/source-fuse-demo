@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  sqldata:
+    container_name: 'SQL_Server'
+    user: root
+    ports:
+      - 5433:1433
+    environment:
+      SA_PASSWORD: 'fUB23QE9zK%J'
+      ACCEPT_EULA: "Y"
+    restart: always
+    
+  johnnydemo.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - "80"
+      - "443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
